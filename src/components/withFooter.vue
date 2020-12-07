@@ -1,10 +1,19 @@
 <template>
   <div>
     <hr class="vm2__hr" />
-    <div class="vm2__footer">
+    <div class="vm2__footer" :style="{ justifyContent: justify }">
       <div>
-        <button>{{ btn1 }}</button>
-        <button class="vm2__green">{{ btn2 }}</button>
+        <button @click="btn1OnClick" :style="btn1Style">
+          {{ btn1 }}
+        </button>
+        <button
+          v-if="!disableBtn2"
+          @click="btn2OnClick"
+          class="vm2__green"
+          :style="btn2Style"
+        >
+          {{ btn2 }}
+        </button>
       </div>
     </div>
   </div>
@@ -12,14 +21,55 @@
 
 <script>
 export default {
-  props: {
-    btn1: {
-      type: String,
-      default: "Button 1",
+  props: ["props"],
+  computed: {
+    justify() {
+      if (this.props && this.props.justify) {
+        return this.props.justify;
+      }
+      return "flex-end";
     },
-    btn2: {
-      type: String,
-      default: "Button 2",
+    btn2Style() {
+      if (this.props && this.props.btn2Style) {
+        return this.props.btn2Style;
+      }
+      return {};
+    },
+    btn1Style() {
+      if (this.props && this.props.btn1Style) {
+        return this.props.btn1Style;
+      }
+      return {};
+    },
+    btn1OnClick() {
+      if (this.props && this.props.btn1OnClick) {
+        return this.props.btn1OnClick;
+      }
+      return () => {};
+    },
+    btn2OnClick() {
+      if (this.props && this.props.btn2OnClick) {
+        return this.props.btn2OnClick;
+      }
+      return () => {};
+    },
+    disableBtn2() {
+      if (this.props && this.props.disableBtn2) {
+        return this.props.disableBtn2;
+      }
+      return false;
+    },
+    btn1() {
+      if (this.props && this.props.btn1) {
+        return this.props.btn1;
+      }
+      return "Button 1";
+    },
+    btn2() {
+      if (this.props && this.props.btn2) {
+        return this.props.btn2;
+      }
+      return "Button 2";
     },
   },
 };

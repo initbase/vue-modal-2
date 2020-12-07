@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" width="25%" />
-    <ContainerModal />
+    <ContainerModal
+      name="modal1"
+      :footerOptions="{
+        btn1OnClick: () => hell(),
+      }"
+    />
   </div>
 </template>
 
@@ -11,6 +16,11 @@ export default {
   name: "App",
   components: {
     ContainerModal,
+  },
+  methods: {
+    hell() {
+      alert("111");
+    },
   },
 };
 </script>

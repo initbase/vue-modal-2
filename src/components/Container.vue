@@ -4,7 +4,7 @@
       <div class="vm2_modal-content">
         <withHeader />
         <div style="margin: 15px">This is content</div>
-        <WithFooter />
+        <WithFooter :props="{ ...footerOptions }" />
       </div>
     </div>
   </div>
@@ -14,6 +14,13 @@
 import WithHeader from "./withHeader";
 import WithFooter from "./withFooter";
 export default {
+  props: {
+    name: String,
+    footerOptions: {
+      type: Object,
+      default: () => {},
+    },
+  },
   components: {
     WithHeader,
     WithFooter,
