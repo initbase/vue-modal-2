@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div class="vm2__header">
+    <div class="vm2__header" v-if="hasDefaultSlot">
       <div>
         <h4 style="margin: 5px 10px">{{ title }}</h4>
       </div>
-      <div class="vm2__close" v-html="closeIcon"></div>
+      <div class="vm2__close" @click="handleIconClick" v-html="closeIcon"></div>
     </div>
+    <slot v-else />
     <hr class="vm2__hr" />
   </div>
 </template>
@@ -20,6 +21,16 @@ export default {
     closeIcon: {
       type: String,
       default: "&#x2715;",
+    },
+  },
+  methods: {
+    handleIconClick() {
+      this.$emit("on-icon-click");
+    },
+  },
+  computed: {
+    hasDefaultSlot() {
+      return !this.$slots.default;
     },
   },
 };
@@ -37,6 +48,9 @@ export default {
 }
 .vm2__close:hover {
   opacity: 0.7;
+}
+.vm2--dark .vm2__hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .vm2__hr {
   margin-top: 0.4rem;

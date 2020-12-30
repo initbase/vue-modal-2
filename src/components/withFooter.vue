@@ -1,21 +1,26 @@
 <template>
   <div>
     <hr class="vm2__hr" />
-    <div class="vm2__footer" :style="{ justifyContent: justify }">
+    <div
+      class="vm2__footer"
+      :style="{ justifyContent: justify }"
+      v-if="hasDefaultSlot"
+    >
       <div>
-        <button @click="btn1OnClick" :style="btn1Style">
+        <button @click="btn1OnClick" :style="btn1Style" class="vm2__btn">
           {{ btn1 }}
         </button>
         <button
           v-if="!disableBtn2"
           @click="btn2OnClick"
-          class="vm2__green"
+          class="vm2__green vm2__btn"
           :style="btn2Style"
         >
           {{ btn2 }}
         </button>
       </div>
     </div>
+    <slot v-else />
   </div>
 </template>
 
@@ -71,6 +76,9 @@ export default {
       }
       return "Button 2";
     },
+    hasDefaultSlot() {
+      return !this.$slots.default;
+    },
   },
 };
 </script>
@@ -81,13 +89,7 @@ export default {
   display: flex;
   margin: 10px;
 }
-.vm2__hr {
-  margin-top: 0.4rem;
-  margin-bottom: 1rem;
-  border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-button {
+.vm2__btn {
   margin: 0 5px;
   display: inline-block;
   font-weight: 400;
@@ -111,7 +113,7 @@ button {
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   cursor: pointer;
 }
-button:hover {
+.vm2__btn:hover {
   opacity: 0.8;
 }
 .vm2__green {
@@ -120,5 +122,14 @@ button:hover {
 }
 .vm2__red {
   color: red;
+}
+.vm2--dark .vm2__hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.vm2__hr {
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 </style>
