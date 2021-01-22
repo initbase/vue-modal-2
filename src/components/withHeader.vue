@@ -13,16 +13,7 @@
 
 <script>
 export default {
-  props: {
-    title: {
-      type: String,
-      default: "Modal title",
-    },
-    closeIcon: {
-      type: String,
-      default: "&#x2715;",
-    },
-  },
+  props: ['props'],
   methods: {
     handleIconClick() {
       this.$emit("on-icon-click");
@@ -32,6 +23,18 @@ export default {
     hasDefaultSlot() {
       return !this.$slots.default;
     },
+    title () {
+      if (this.props && this.props.title) {
+        return this.props.title;
+      }
+      return "Modal title";
+    },
+    closeIcon () {
+      if (this.props && this.props.closeIcon) {
+        return this.props.closeIcon;
+      }
+      return "&#x2715;";
+    }
   },
 };
 </script>

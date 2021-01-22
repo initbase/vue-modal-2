@@ -3,8 +3,11 @@
     <img alt="Vue logo" src="./assets/logo.png" width="25%" />
     <p v-for="i in 10" :key="i">scroll down</p>
 
-    <ContainerModal
+    <modal-vue
       name="modal1"
+      :headerOptions="{
+        title: 'Delete?'
+      }"
       :footerOptions="{
         btn1OnClick: () => hell(),
         justify: 'flex-start',
@@ -19,7 +22,7 @@
         <!-- <div>Footer Name</div> -->
       </template>
       <div>content</div>
-    </ContainerModal>
+    </modal-vue>
     <button @click="open" class="button">Click Here</button>
 
     <p v-for="i in 10" :key="i">scroll up</p>
@@ -27,11 +30,11 @@
 </template>
 
 <script>
-import ContainerModal from "./components/Container";
+// import ContainerModal from "./components/Container";
 export default {
   name: "App",
   components: {
-    ContainerModal,
+    // ContainerModal,
   },
   data() {
     return {

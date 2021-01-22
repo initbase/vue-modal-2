@@ -12,7 +12,7 @@
         id="vm2_box"
         :style="{ backgroundColor: modalBgColor, color: fontColor }"
       >
-        <withHeader v-if="!noHeader" @on-icon-click="handleClose">
+        <withHeader v-if="!noHeader" @on-icon-click="handleClose" :props="{...headerOptions}">
           <slot name="header" />
         </withHeader>
         <div v-if="hasDefaultSlot" style="margin: 15px">This is content</div>
@@ -35,6 +35,10 @@ export default {
       default: "modal-1",
     },
     footerOptions: {
+      type: Object,
+      default: () => {},
+    },
+    headerOptions: {
       type: Object,
       default: () => {},
     },

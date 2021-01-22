@@ -64,6 +64,23 @@ Vue.use(Modal. {
 ### Props
 vue-modal-2 accept some props
 
+#### `headerOptions`
+options props for vue-modal-2 header
+- type: `Object`
+- default: `{}`
+
+__headerOptions key:__
+
+|key|type|default|desc|
+|---|---|---|---|
+|`headerOptions.title`|`String`|Modal title| Modal title on the left side|
+|`headerOptions.closeIcon`|`String`|`&#x2715;`|Close button icon on the right side|
+
+#### `footerOptions`
+options props for vue-modal-2 footer
+- type: `Object`
+- default: `{}`
+
 #### `noFooter`
 used to remove footer
 - type: `Boolean`
