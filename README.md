@@ -2,7 +2,7 @@
 
 [![npm version](https://badgen.net/npm/v/@burhanahmeed/vue-modal-2)](https://npm.im/@burhanahmeed/vue-modal-2) [![size](https://badgen.net/bundlephobia/minzip/@burhanahmeed/vue-modal-2)](https://bundlephobia.com/result?p=@burhanahmeed/vue-modal-2) ![npm](https://img.shields.io/npm/dt/@burhanahmeed/vue-modal-2) 
 
-A simple and lightweight Vue modal component. For short we call it VM2
+A simple and lightweight Vue modal component. For short we call it VM2. (Still experimental)
 
 ## Install
 ```bash
@@ -30,11 +30,24 @@ new Vue({
 }).$mount("#app");
 
 ```
-Usage in vue. If you didn't specify `options.componentName`, by default it will be `<vue-modal-2></vue-modal-2>`
-```javascript
+Usage in vue. If you didn't specify [`options.componentName`](#optionscomponentname), by default it will be `<vue-modal-2></vue-modal-2>`
+```html
 <template>
-  <vue-modal-2 name="modal-1"> Component </vue-modal-2>
+  <vue-modal-2 name="modal-1" @on-close="close">
+    Hello From Inside Modal Component
+  </vue-modal-2>
 </template>
+```
+__API usage__
+```javascript
+methods: {
+  open () {
+    this.$vm2.open('model-1')
+  },
+  close () {
+    this.$vm2.close('model-1')
+  }
+}
 ```
 
 vue-modal-2 also accept options in `.use()` function as second argument.
@@ -47,6 +60,42 @@ Vue.use(Modal. {
   componentName: 'VueModal'
 });
 ```
+### Props
+vue-modal-2 accept some props
+
+#### `noFooter`
+used to remove footer
+- type: `Boolean`
+- default: `false`
+#### `noHeader`
+Used to remove header
+- type: `Boolean`
+- default: `false`
+#### `wrapperBg`
+Background color of modal wrapper (default is dark)
+- type: `String`
+- default: `rgba(0, 0, 0, 0.5)`
+#### `darkMode`
+Used to switch color mode
+- type: `Boolean`
+- default: `false`
+#### `lightBg`
+background color of modal container when mode is light
+- type: `String`
+- default: `white`
+#### `darkBg`
+background color of modal container when mode is dark
+- type: `String`
+- default: `#06090f`
+#### `fontDark`
+text color of modal when mode is dark
+- type: `String`
+- default: `white`
+#### `fontLight`
+text color of modal when mode is light
+- type: `String`
+- default: `black`
+
 
 ## License
 
