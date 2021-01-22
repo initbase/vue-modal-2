@@ -30,15 +30,18 @@ import WithHeader from "./withHeader";
 import WithFooter from "./withFooter";
 export default {
   props: {
-    name: String,
+    name: {
+      type: String,
+      default: "modal-1",
+    },
     footerOptions: {
       type: Object,
       default: () => {},
     },
-    visible: {
-      type: Boolean,
-      default: false,
-    },
+    // visible: {
+    //   type: Boolean,
+    //   default: false,
+    // },
     noFooter: {
       type: Boolean,
       default: false,
@@ -63,6 +66,14 @@ export default {
       type: String,
       default: "#06090f",
     },
+    fontDark: {
+      type: String,
+      default: "white",
+    },
+    fontLight: {
+      type: String,
+      default: "black",
+    },
   },
   watch: {
     visible(val) {
@@ -75,6 +86,7 @@ export default {
     return {
       blockVisible: false,
       scrollY: 0,
+      visible: false,
     };
   },
   methods: {
@@ -109,9 +121,9 @@ export default {
     },
     fontColor() {
       if (this.darkMode) {
-        return "white";
+        return this.fontDark;
       }
-      return "black";
+      return this.fontLight;
     },
     hasDefaultSlot() {
       return !this.$slots.default;
@@ -120,6 +132,13 @@ export default {
   components: {
     WithHeader,
     WithFooter,
+  },
+  created() {
+    this.$vm2.root.$on("toggle", (status, name) => {
+      if (this.name == name) {
+        this.visible = status;
+      }
+    });
   },
   mounted() {
     // this.blockVisible = !this.visible;

@@ -2,25 +2,28 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" width="25%" />
     <p v-for="i in 10" :key="i">scroll down</p>
+
     <ContainerModal
       name="modal1"
       :footerOptions="{
         btn1OnClick: () => hell(),
         justify: 'flex-start',
       }"
-      :visible="isVisible"
-      :darkMode="true"
+      :darkMode="false"
       @on-close="handleClose"
+      noHeader
+      noFooter
     >
       <template v-slot:header>
-        <!-- <div>Header Name</div> -->
+        <div>Header Name</div>
       </template>
       <template v-slot:footer>
-        <!-- <div>Footer Name</div> -->
+        <div>Footer Name</div>
       </template>
       <div>content</div>
     </ContainerModal>
     <button @click="open" class="button">Click Here</button>
+
     <p v-for="i in 10">scroll up</p>
   </div>
 </template>
@@ -43,9 +46,11 @@ export default {
     },
     handleClose(args) {
       this.isVisible = false;
+      this.$vm2.close("modal1");
     },
     open() {
       this.isVisible = true;
+      this.$vm2.open("modal1");
     },
   },
 };
