@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import WithHeader from "./withHeader";
-import WithFooter from "./withFooter";
+import WithHeader from "./withHeader.vue";
+import WithFooter from "./withFooter.vue";
 export default {
   props: {
     name: {

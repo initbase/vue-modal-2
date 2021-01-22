@@ -10,7 +10,7 @@ const plugin = {
       return;
     }
 
-    const options = { ...optsDefault, ...opts };
+    const options = Object.assign(opts, optsDefault);
 
     const root = new Vue();
 
