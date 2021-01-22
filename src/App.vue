@@ -11,14 +11,12 @@
       }"
       :darkMode="false"
       @on-close="handleClose"
-      noHeader
-      noFooter
     >
       <template v-slot:header>
-        <div>Header Name</div>
+        <!-- <div>Header Name</div> -->
       </template>
       <template v-slot:footer>
-        <div>Footer Name</div>
+        <!-- <div>Footer Name</div> -->
       </template>
       <div>content</div>
     </ContainerModal>
