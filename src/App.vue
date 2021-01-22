@@ -22,7 +22,7 @@
     </ContainerModal>
     <button @click="open" class="button">Click Here</button>
 
-    <p v-for="i in 10">scroll up</p>
+    <p v-for="i in 10" :key="i">scroll up</p>
   </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
     hell() {
       alert("111");
     },
-    handleClose(args) {
+    handleClose() {
       this.isVisible = false;
       this.$vm2.close("modal1");
     },
