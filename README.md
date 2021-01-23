@@ -72,8 +72,14 @@ Vue.use(Modal. {
 </template>
 ```
 
-### Props
+## Props
 vue-modal-2 accept some props
+
+#### `name`
+unique name of the modal (__required__).
+- type: `String`
+- required: `true`
+- default: `modal-1`
 
 #### `@on-close` or `v-bind:on-close`
 props function using to close the modal (__required__).
@@ -146,6 +152,13 @@ text color of modal when mode is light
 - type: `String`
 - default: `black`
 
+## API
+
+#### `open(args)`
+accept modal name as `args`
+
+#### `close(args)`
+accept modal name as `args`
 
 ## Contribution
 Feel free to open an issue or pull request. Open an issue if you want discussing something.
