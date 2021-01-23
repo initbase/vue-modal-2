@@ -2,7 +2,7 @@
 
 [![npm version](https://badgen.net/npm/v/@burhanahmeed/vue-modal-2)](https://npm.im/@burhanahmeed/vue-modal-2) [![size](https://badgen.net/bundlephobia/minzip/@burhanahmeed/vue-modal-2)](https://bundlephobia.com/result?p=@burhanahmeed/vue-modal-2) ![npm](https://img.shields.io/npm/dt/@burhanahmeed/vue-modal-2) 
 
-A simple and lightweight Vue modal component. For short we call it VM2. (Still experimental)
+A simple and lightweight Vue modal component. For short we call it VM2.
 
 ## Demo
 [demo codesandbox](https://tautan.link/demoVueModal)
