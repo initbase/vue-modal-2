@@ -2,7 +2,7 @@
   "name": "@burhanahmeed/vue-modal-2",
   "version": "1.1.2",
   "private": false,
-  "author": "Burhanuddin Ahmed",
+  "author": "Burhanuddin Ahmed <brhn@kusiaga.com>",
   "license": "MIT",
   "description": "A simple and lightweight Vue modal component.",
   "main": "dist/vue-modal-2.umd.js",
