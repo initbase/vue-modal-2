@@ -58,7 +58,7 @@ vue-modal-2 also accept options in `.use()` function as second argument.
 #### `options.componentName`
 - type: `String`
 - default: `vue-modal-2`
-- example: `VueModal`
+
 ```javascript
 Vue.use(Modal. {
   componentName: 'MyModal'
