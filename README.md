@@ -4,6 +4,9 @@
 
 A simple and lightweight Vue modal component. For short we call it VM2. (Still experimental)
 
+## Demo
+[demo codesandbox](https://tautan.link/demoVueModal)
+
 ## Install
 ```bash
 yarn add @burhanahmeed/vue-modal-2
@@ -42,10 +45,10 @@ __API usage__
 ```javascript
 methods: {
   open () {
-    this.$vm2.open('model-1')
+    this.$vm2.open('modal-1')
   },
   close () {
-    this.$vm2.close('model-1')
+    this.$vm2.close('modal-1')
   }
 }
 ```
@@ -58,11 +61,26 @@ vue-modal-2 also accept options in `.use()` function as second argument.
 - example: `VueModal`
 ```javascript
 Vue.use(Modal. {
-  componentName: 'VueModal'
+  componentName: 'MyModal'
 });
 ```
+```html
+<template>
+  <my-modal name="modal-1" @on-close="close">
+    Hello From Inside Modal Component
+  </my-modal>
+</template>
+```
+
 ### Props
 vue-modal-2 accept some props
+
+#### `@on-close` or `v-bind:on-close`
+props function using to close the modal (__required__).
+- type: `function`
+- required: `true`
+
+see example above.
 
 #### `headerOptions`
 options props for vue-modal-2 header
@@ -80,6 +98,20 @@ __headerOptions key:__
 options props for vue-modal-2 footer
 - type: `Object`
 - default: `{}`
+
+__footerOptions key:__
+
+|key|type|default|desc|
+|---|---|---|---|
+|`footerOptions.justify`|`String`|`flex-end`| determine button position on the left or right|
+|`footerOptions.btn1`|`String`|`Button 1`|button one text. Button 1 is the one on the left side.|
+|`footerOptions.btn2`|`String`|`Button 2`|button two text. Button 2 is the one on the right side.|
+|`footerOptions.btn2`|`String`|`Button 2`|button two text. Button 2 is the one on the right side.|
+|`footerOptions.disableBtn2`|`Boolean`|`false`|button 2 (right side) can be disabled.|
+|`footerOptions.btn1OnClick`|`Function`|`() => {}`|action when button 1 is clicked.|
+|`footerOptions.btn2OnClick`|`Function`|`() => {}`|action when button 2 is clicked.|
+|`footerOptions.btn1Style`|`Object`|`{}`|style or css of button 1. eg. `{fontSize: '14px'}`|
+|`footerOptions.btn2Style`|`Object`|`{}`|style or css of button 2. eg. `{fontSize: '14px'}`|
 
 #### `noFooter`
 used to remove footer
@@ -113,6 +145,10 @@ text color of modal when mode is dark
 text color of modal when mode is light
 - type: `String`
 - default: `black`
+
+
+## Contribution
+Feel free to open an issue or pull request. Open an issue if you want discussing something.
 
 
 ## License
