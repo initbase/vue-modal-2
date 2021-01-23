@@ -1,7 +1,7 @@
 <template>
   <div
     class="vm2_wrapper vm2__animate-opacity"
-    id="vm2__cover_wrapper"
+    :id="`vm2__cover_wrapper_${name}`"
     v-show="visible"
     :class="{ 'vm2__animate-show': blockVisible, 'vm2--dark': darkMode }"
     :style="{ backgroundColor: wrapperBg }"
@@ -9,7 +9,7 @@
     <div class="vm2_modal-dialog vm2_settings">
       <div
         class="vm2_modal-content"
-        id="vm2_box"
+        :id="`vm2_box_${name}`"
         :style="{ backgroundColor: modalBgColor, color: fontColor }"
       >
         <withHeader v-if="!noHeader" @on-icon-click="handleClose" :props="{...headerOptions}">
@@ -147,24 +147,24 @@ export default {
   mounted() {
     // this.blockVisible = !this.visible;
     const vm = this;
-    document.getElementById("vm2__cover_wrapper").onclick = function (e) {
-      if (!document.getElementById("vm2_box").contains(e.target)) {
+    document.getElementById(`vm2__cover_wrapper_${vm.name}`).onclick = function (e) {
+      if (!document.getElementById(`vm2_box_${vm.name}`).contains(e.target)) {
         // alert("You clicked outside");
-        if (document.getElementById("vm2__cover_wrapper").contains(e.target)) {
+        if (document.getElementById(`vm2__cover_wrapper_${vm.name}`).contains(e.target)) {
           // alert("Here");
           vm.handleClose();
         }
       }
     };
-    document.onkeyup = function (e) {
+    document.addEventListener('keyup', e => {
       e = e || window.event;
       if (e.keyCode == 27) {
-        // alert(`Esc key pr/zessed. ${vm.visible}`);
+        // alert(`Esc key pr/zessed. ${vm.visible} ${vm.name}`);
         if (vm.visible == true) {
           vm.handleClose();
         }
-      }
-    };
+      }  
+    })
   },
 };
 </script>

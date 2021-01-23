@@ -25,6 +25,22 @@
     </modal-vue>
     <button @click="open" class="button">Click Here</button>
 
+    <modal-vue
+      name="modal2"
+      :headerOptions="{
+        title: 'Delete?'
+      }"
+      :footerOptions="{
+        btn1OnClick: () => hell(),
+        justify: 'flex-start',
+      }"
+      :darkMode="false"
+      @on-close="handleClose2"
+    >
+      <div>content</div>
+    </modal-vue>
+    <button @click="open2" class="button">Click Here 2</button>
+
     <p v-for="i in 10" :key="i">scroll up</p>
   </div>
 </template>
@@ -52,6 +68,14 @@ export default {
     open() {
       this.isVisible = true;
       this.$vm2.open("modal1");
+    },
+    handleClose2() {
+      this.isVisible = false;
+      this.$vm2.close("modal2");
+    },
+    open2() {
+      this.isVisible = true;
+      this.$vm2.open("modal2");
     },
   },
 };
