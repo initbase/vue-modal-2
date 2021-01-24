@@ -138,7 +138,7 @@ export default {
     WithFooter,
   },
   created() {
-    this.$vm2.root.$on("toggle", (status, name) => {
+    this.$vm2.root.on("toggle", ({status, name}) => {
       if (this.name == name) {
         this.visible = status;
       }

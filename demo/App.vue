@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" width="25%" />
     <p v-for="i in 10" :key="i">scroll down</p>
 
     <modal-vue

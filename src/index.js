@@ -1,30 +1,36 @@
 import ContainerModal from "./components/Container.vue";
-// import Vue from "vue";
+import $eventBus from './Event.js'
 
 const optsDefault = {
   componentName: "vue-modal-2"
 };
 const plugin = {
-  install(Vue, opts = {}) {
-    if (Vue.prototype.$vm2) {
+  install(app, opts = {}) {
+    if (app.config.globalProperties.$vm2) {
       return;
     }
 
     const options = Object.assign(optsDefault, opts);
 
-    const root = new Vue();
+    const root = $eventBus;
 
-    Vue.prototype.$vm2 = {
+    app.component(options.componentName, ContainerModal);
+
+    app.config.globalProperties.$vm2 = {
       open: (name = "modal-1") => {
-        root.$emit("toggle", true, name);
+        root.trigger("toggle", {
+          status: true,
+          name
+        });
       },
       close: (name = "modal-1") => {
-        root.$emit("toggle", false, name);
+        root.trigger("toggle", {
+          status: false,
+          name
+        });
       },
       root: root
     };
-
-    Vue.component(options.componentName, ContainerModal);
   }
 };
 
