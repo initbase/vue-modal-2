@@ -1,33 +1,47 @@
-//events - a super-basic Javascript (publish subscribe) pattern
 
-class Event{
-  constructor(){
+class EventEmitter{
+
+    constructor(){
       this.events = {};
-  }
-
-  on(eventName, fn) {
-      this.events[eventName] = this.events[eventName] || [];
-      this.events[eventName].push(fn);
-  }
-
-  off(eventName, fn) {
-      if (this.events[eventName]) {
-          for (var i = 0; i < this.events[eventName].length; i++) {
-              if (this.events[eventName][i] === fn) {
-                  this.events[eventName].splice(i, 1);
-                  break;
-              }
-          }
+    }
+  
+    _getEventListByName(eventName){
+      if(typeof this.events[eventName] === 'undefined'){
+        this.events[eventName] = new Set();
       }
+      return this.events[eventName]
+    }
+  
+    on(eventName, fn){
+      this._getEventListByName(eventName).add(fn);
+    }
+  
+    once(eventName, fn){
+  
+      const self = this;
+  
+      const onceFn = function(...args){
+        self.removeListener(eventName, onceFn);
+        fn.apply(self, args);
+      };
+      this.on(eventName, onceFn);
+  
+    }
+  
+    trigger(eventName, ...args){
+  
+      this._getEventListByName(eventName).forEach(function(fn){
+  
+        fn.apply(this,args);
+  
+      }.bind(this));
+  
+    }
+  
+    removeListener(eventName, fn){
+      this._getEventListByName(eventName).delete(fn);
+    }
+
   }
 
-  trigger(eventName, data) {
-      if (this.events[eventName]) {
-          this.events[eventName].forEach(function(fn) {
-              fn(data);
-          });
-      }
-  }
-}
-
-export default new Event();
+export default EventEmitter;
