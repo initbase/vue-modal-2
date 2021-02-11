@@ -12,9 +12,9 @@
         :id="`vm2_box_${name}`"
         :style="{ backgroundColor: modalBgColor, color: fontColor }"
       >
-        <withHeader v-if="!noHeader" @on-icon-click="handleClose" :props="{...headerOptions}">
+        <WithHeader v-if="!noHeader" @on-icon-click="handleClose" :props="{...headerOptions}">
           <slot name="header" />
-        </withHeader>
+        </WithHeader>
         <div v-if="hasDefaultSlot" style="margin: 15px">This is content</div>
         <slot v-else />
         <WithFooter v-if="!noFooter" :props="{ ...footerOptions }">

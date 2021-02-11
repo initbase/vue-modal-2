@@ -1,6 +1,6 @@
 import ContainerModal from "./components/Container.vue";
 import Bus from './Event.js'
-import { isVue3, Vue } from 'vue-demi';
+import { isVue3, inject } from 'vue-demi';
 
 const optsDefault = {
   componentName: "vue-modal-2"
@@ -8,12 +8,16 @@ const optsDefault = {
 
 const modalSymbol = Symbol();
 const useModal = () => {
-  if (isVue3) {
-    const vueModal = inject(modalSymbol)
-    if (!vueModal) throw new Error('No VueToasted provided!!!')
-    return vueModal;
-  }
+  // if (isVue3) {
+  //   const vueModal = inject(modalSymbol)
+  //   if (!vueModal) throw new Error('No VM2 provided!!!')
+  //   return vueModal;
+  // }
 }
+
+// const AsyncComp = defineAsyncComponent(() =>
+//   import('./components/Container.vue')
+// )
 
 const plugin = {
   install(app, opts = {}) {
@@ -24,9 +28,9 @@ const plugin = {
 
     let options = Object.assign(optsDefault, opts);
 
-    const root = new Bus();
-
     app.component(options.componentName, ContainerModal);
+    
+    const root = new Bus();
 
     const api = {
       open: (name = "modal-1") => {

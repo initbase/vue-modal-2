@@ -77,7 +77,7 @@ export default {
       return "Button 2";
     },
     hasDefaultSlot() {
-      return !this.$slots.default;
+      return !this.$slots.default();
     },
   },
 };

@@ -1,11 +1,13 @@
 import ContainerModal from "./components/Container.vue";
 import Bus from './Event.js';
+import { install } from 'vue-demi';
 
 const optsDefault = {
   componentName: "vue-modal-2"
 };
 const Plugins = {
   install (app, opts = {}) {
+    install(app);
     if (app.prototype.$vm2) {
       return;
     }
