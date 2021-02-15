@@ -2,10 +2,10 @@
 
 [![npm version](https://badgen.net/npm/v/@burhanahmeed/vue-modal-2)](https://npm.im/@burhanahmeed/vue-modal-2) [![size](https://badgen.net/bundlephobia/minzip/@burhanahmeed/vue-modal-2)](https://bundlephobia.com/result?p=@burhanahmeed/vue-modal-2) ![npm](https://img.shields.io/npm/dt/@burhanahmeed/vue-modal-2) 
 
-A simple and lightweight Vue modal component. For short we call it VM2.
+A simple and lightweight Vue modal component for __Vue 2.x__.
 
 ## Demo
-[demo codesandbox](https://tautan.link/demoVueModal)
+[demo codesandbox](https://codesandbox.io/s/vue-modal-2-vue2-forked-rfxwr)
 
 ## Install
 ```bash
@@ -151,6 +151,10 @@ text color of modal when mode is dark
 text color of modal when mode is light
 - type: `String`
 - default: `black`
+#### `modalSize`
+text color of modal when mode is light
+- type: `String`
+- value: `md` | `lg` | `xl` | `full-w` | `full-hw`
 
 ## API
 
@@ -163,7 +167,14 @@ accept modal name as `args`
 ## Contribution
 Feel free to open an issue or pull request. Open an issue if you want discussing something.
 
+## Changelogs
+
+#### 1.1.5
+- Add props `modalSize` with value [`md`, `lg`, `xl`, `full-w`, `full-hw`]
+- fix reponsiveness problems
+- fix body overflow not automatically being scrollable
+
 
 ## License
 
-MIT &copy; [burhanahmeed](https://github.com/burhanahmeed/vue-modal-2)
+MIT &copy; [burhanahmeed](https://github.com/burhanahmeed/vue-modal-2) and [12Sync](https://github.com/12sync)

@@ -36,6 +36,7 @@
       }"
       :darkMode="false"
       @on-close="handleClose2"
+      modalSize="full-hw"
     >
       <div>content</div>
     </modal-vue>

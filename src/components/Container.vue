@@ -6,17 +6,24 @@
     :class="{ 'vm2__animate-show': blockVisible, 'vm2--dark': darkMode }"
     :style="{ backgroundColor: wrapperBg }"
   >
-    <div class="vm2_modal-dialog vm2_settings">
+    <div class="vm2_modal-dialog vm2_settings" :class="contentSize? contentSize: ''">
       <div
         class="vm2_modal-content"
         :id="`vm2_box_${name}`"
         :style="{ backgroundColor: modalBgColor, color: fontColor }"
       >
+        <!-- modal header -->
         <withHeader v-if="!noHeader" @on-icon-click="handleClose" :props="{...headerOptions}">
           <slot name="header" />
         </withHeader>
-        <div v-if="hasDefaultSlot" style="margin: 15px">This is content</div>
-        <slot v-else />
+        <!-- modal body -->
+        <div class="vm2_body">
+          <div v-if="hasDefaultSlot" style="margin: 15px">
+            <p>Content here </p>
+          </div>
+          <slot v-else />
+        </div>
+        <!-- modal footer -->
         <WithFooter v-if="!noFooter" :props="{ ...footerOptions }">
           <slot name="footer" />
         </WithFooter>
@@ -78,6 +85,9 @@ export default {
       type: String,
       default: "black",
     },
+    modalSize: {
+      type: [String, Number]
+    }
   },
   watch: {
     visible(val) {
@@ -132,6 +142,22 @@ export default {
     hasDefaultSlot() {
       return !this.$slots.default;
     },
+    contentSize () {
+      if (this.modalSize) {
+        if (this.modalSize === 'md') {
+          return 'vm2_md';
+        } else if (this.modalSize === 'lg') {
+          return 'vm2_lg';
+        } else if (this.modalSize === 'xl') {
+          return 'vm2_xl';
+        } else if (this.modalSize === 'full-w') {
+          return 'vm2_fullWidth'
+        } else if (this.modalSize === 'full-hw') {
+          return 'vm2_full-hw'
+        }
+      }
+      return null
+    }
   },
   components: {
     WithHeader,
@@ -192,19 +218,80 @@ export default {
   bottom: 0;
   right: 0;
   left: 0;
-  margin: 1.75rem auto;
+  margin: 0.3rem;
 }
 .vm2_settings {
-  width: 90%;
+  width: auto;
   height: auto;
 }
 .vm2_modal-content {
   position: relative;
-  width: 350px;
+  width: 100%;
   border-radius: 5px;
 }
 .vm2__animate-opacity {
   animation: opac 0.8s;
+}
+
+.vm2_fullWidth, .vm2_full-hw {
+  width: auto;
+}
+.vm2_body {
+  overflow-y: auto;
+}
+.vm2_full-hw .vm2_modal-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.vm2_full-hw .vm2_body {
+  flex: 1 1 auto;
+  position: relative;
+}
+.vm2_full-hw.vm2_modal-dialog {
+  max-height: unset;
+}
+.vm2_full-hw.vm2_settings {
+  height: unset;
+  margin: 0.3rem;
+}
+
+@media screen and (min-width: 370px) {
+  .vm2_settings {
+    max-width: 350px;
+  }
+  .vm2_modal-dialog {
+    margin: 1.75rem auto;
+  }
+  .vm2_settings.vm2_xl,
+  .vm2_settings.vm2_lg, 
+  .vm2_settings.vm2_fullWidth, 
+  .vm2_settings.vm2_full-hw {
+    width: auto !important;
+    max-width: unset;
+  }
+}
+
+@media screen and (min-width: 580px) {
+  .vm2_settings.vm2_md, .vm2_settings.vm2_lg {
+    max-width: 500px !important;
+  }
+  .vm2_settings.vm2_xl {
+    width: auto;
+    max-width: unset;
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .vm2_settings.vm2_lg, .vm2_settings.vm2_xl {
+    max-width: 800px !important;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .vm2_settings.vm2_xl {
+    max-width: 1200px !important;
+  }
 }
 
 @keyframes opac {
