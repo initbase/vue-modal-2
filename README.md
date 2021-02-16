@@ -128,7 +128,7 @@ Used to remove header
 - type: `Boolean`
 - default: `false`
 #### `wrapperBg`
-Background color of modal wrapper (default is dark)
+Background color of modal wrapper (backdrop) (default is dark)
 - type: `String`
 - default: `rgba(0, 0, 0, 0.5)`
 #### `darkMode`
@@ -136,11 +136,11 @@ Used to switch color mode
 - type: `Boolean`
 - default: `false`
 #### `lightBg`
-background color of modal container when mode is light
+background color of modal dialog when mode is light
 - type: `String`
 - default: `white`
 #### `darkBg`
-background color of modal container when mode is dark
+background color of modal dialog when mode is dark
 - type: `String`
 - default: `#06090f`
 #### `fontDark`
@@ -152,7 +152,7 @@ text color of modal when mode is light
 - type: `String`
 - default: `black`
 #### `modalSize`
-text color of modal when mode is light
+size of modal dialog
 - type: `String`
 - value: `md` | `lg` | `xl` | `full-w` | `full-hw`
 
