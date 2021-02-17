@@ -5,8 +5,13 @@
     v-show="visible"
     :class="{ 'vm2__animate-show': blockVisible, 'vm2--dark': darkMode }"
     :style="{ backgroundColor: wrapperBg }"
+    tabindex="-1"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    :aria-labelledby="`dialog ${name}`"
   >
-    <div class="vm2_modal-dialog vm2_settings" :class="contentSize? contentSize: ''">
+    <div class="vm2_modal-dialog vm2_settings" :class="contentSize? contentSize: ''" role="document">
       <div
         class="vm2_modal-content"
         :id="`vm2_box_${name}`"

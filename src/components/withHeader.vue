@@ -4,7 +4,15 @@
       <div>
         <h4 style="margin: 5px 10px">{{ title }}</h4>
       </div>
-      <div class="vm2__close" @click="handleIconClick" v-html="closeIcon"></div>
+      <button
+        ref="closeButton"
+        aria-label="Close" 
+        role="button" 
+        aria-pressed="false" 
+        class="vm2__close" 
+        @click="handleIconClick">
+        <span v-html="closeIcon" aria-hidden="true"></span>
+      </button>
     </div>
     <slot v-else />
     <hr class="vm2__hr" />
@@ -36,6 +44,14 @@ export default {
       return "&#x2715;";
     }
   },
+  mounted () {
+    this.nextTick(() => {
+      this.$refs.closeButton.focus();
+    });
+    setTimeout(() => {
+      this.$refs.closeButton.focus();
+    }, 300);
+  }
 };
 </script>
 
@@ -47,6 +63,7 @@ export default {
 }
 .vm2__close {
   margin: 5px;
+  padding: 0 4px;
   cursor: pointer;
 }
 .vm2__close:hover {
@@ -60,5 +77,10 @@ export default {
   margin-bottom: 1rem;
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+button[role="button"] {
+  border: transparent;
+  background-color: transparent;
+  font-size: 16px;
 }
 </style>
