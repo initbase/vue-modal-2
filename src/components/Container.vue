@@ -11,7 +11,11 @@
     aria-modal="true"
     :aria-labelledby="`dialog ${name}`"
   >
-    <div class="vm2_modal-dialog vm2_settings" :class="contentSize? contentSize: ''" role="document">
+    <div 
+      class="vm2_modal-dialog vm2_settings" 
+      :class="`${contentSize? contentSize: ''} ${visible? 'vm2_visible': ''}`" 
+      role="document"
+    >
       <div
         class="vm2_modal-content"
         :id="`vm2_box_${name}`"
@@ -159,6 +163,10 @@ export default {
           return 'vm2_fullWidth'
         } else if (this.modalSize === 'full-hw') {
           return 'vm2_full-hw'
+        } else if (this.modalSize == 'sidebar-r') {
+          return 'vm2_sidebar-r'
+        } else if (this.modalSize == 'sidebar-l') {
+          return 'vm2_sidebar-l'
         }
       }
       return null
@@ -244,22 +252,47 @@ export default {
 .vm2_body {
   overflow-y: auto;
 }
-.vm2_full-hw .vm2_modal-content {
+.vm2_full-hw .vm2_modal-content,
+.vm2_sidebar-r .vm2_modal-content,
+.vm2_sidebar-l .vm2_modal-content {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-.vm2_full-hw .vm2_body {
+.vm2_full-hw .vm2_body,
+.vm2_sidebar-r .vm2_body,
+.vm2_sidebar-l .vm2_body {
   flex: 1 1 auto;
   position: relative;
 }
 .vm2_full-hw.vm2_modal-dialog {
   max-height: unset;
 }
-.vm2_full-hw.vm2_settings {
+.vm2_full-hw.vm2_settings,
+.vm2_sidebar-r.vm2_settings,
+.vm2_sidebar-l.vm2_settings {
   height: unset;
-  margin: 0.3rem;
+  margin: 0rem;
 }
+
+.vm2_sidebar-r.vm2_modal-dialog {
+  max-height: unset;
+  left: unset;
+  width: 100%;
+}
+.vm2_sidebar-l.vm2_modal-dialog {
+  max-height: unset;
+  right: unset;
+  width: 100%;
+}
+.vm2_sidebar-r.vm2_modal-dialog {
+  right: -10000px;
+  transition: right .7s ease;
+}
+.vm2_visible.vm2_sidebar-r.vm2_modal-dialog {
+  right: 0;
+}
+
 
 @media screen and (min-width: 370px) {
   .vm2_settings {

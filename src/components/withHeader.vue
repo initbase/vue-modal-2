@@ -5,6 +5,7 @@
         <h4 style="margin: 5px 10px">{{ title }}</h4>
       </div>
       <button
+        tabindex="1"
         ref="closeButton"
         aria-label="Close" 
         role="button" 

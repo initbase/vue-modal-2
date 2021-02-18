@@ -154,7 +154,7 @@ text color of modal when mode is light
 #### `modalSize`
 size of modal dialog
 - type: `String`
-- value: `md` | `lg` | `xl` | `full-w` | `full-hw`
+- value: `md` | `lg` | `xl` | `full-w` | `full-hw` | `sidebar-l` | `sidebar-r`
 
 ## API
 
@@ -168,6 +168,10 @@ accept modal name as `args`
 Feel free to open an issue or pull request. Open an issue if you want discussing something.
 
 ## Changelogs
+
+#### 1.1.6
+- Add more `modalSize` options -> [`sidebar-r`, `sidebar-l`]
+- Add little A11y
 
 #### 1.1.5
 - Add props `modalSize` with value [`md`, `lg`, `xl`, `full-w`, `full-hw`]
