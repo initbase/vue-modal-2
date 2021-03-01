@@ -169,6 +169,8 @@ Feel free to open an issue or pull request. Open an issue if you want discussing
 
 ## Changelogs
 
+[More logs](https://github.com/burhanahmeed/vue-modal-2/releases)
+
 #### 1.1.6
 - Add more `modalSize` options -> [`sidebar-r`, `sidebar-l`]
 - Add little A11y
