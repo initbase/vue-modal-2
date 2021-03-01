@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted () {
-    this.nextTick(() => {
+    this.$nextTick(() => {
       this.$refs.closeButton.focus();
     });
     setTimeout(() => {
