@@ -2,7 +2,7 @@
   <div>
     <div class="vm2__header" v-if="hasDefaultSlot">
       <div>
-        <h4 style="margin: 5px 10px">{{ title }}</h4>
+        <h4 style="margin: 5px 10px" @click="tes()">{{ title }}</h4>
       </div>
       <button
         tabindex="1"
@@ -26,7 +26,7 @@ export default {
   methods: {
     handleIconClick() {
       this.$emit("on-icon-click");
-    },
+    }
   },
   computed: {
     hasDefaultSlot() {
@@ -47,10 +47,14 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      this.$refs.closeButton.focus();
+      if (this.$refs && this.$refs.closeButton) {
+        this.$refs.closeButton.focus(); 
+      }
     });
     setTimeout(() => {
-      this.$refs.closeButton.focus();
+      if (this.$refs && this.$refs.closeButton) {
+        this.$refs.closeButton.focus(); 
+      }
     }, 300);
   }
 };
