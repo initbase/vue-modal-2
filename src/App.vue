@@ -61,6 +61,8 @@ export default {
   methods: {
     hell() {
       alert("111");
+      this.handleClose()
+      this.handleClose2()
     },
     handleClose() {
       this.isVisible = false;
