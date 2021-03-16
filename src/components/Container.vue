@@ -83,6 +83,8 @@ export default {
     visible(val) {
       if (val) {
         this.addStyling("open");
+      } else {
+        this.handleClose();
       }
     },
   },

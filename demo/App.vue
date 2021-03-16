@@ -59,6 +59,7 @@ export default {
   methods: {
     hell() {
       alert("111");
+      this.$vm2.close("modal2");
     },
     handleClose() {
       this.isVisible = false;
