@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "deploy": "yarn docs:build && npx gh-pages docs/.vitepress/dist"
+  },
+  "devDependencies": {
+    "vitepress": "^0.12.2"
+  }
+}
