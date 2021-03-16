@@ -1,6 +1,8 @@
 import ContainerModal from "./components/Container.vue";
+import Testing from "./components/Testing.vue";
+
 import Bus from './Event.js'
-import { isVue3, inject } from 'vue-demi';
+import {inject} from 'vue';
 
 const optsDefault = {
   componentName: "vue-modal-2"
@@ -8,27 +10,21 @@ const optsDefault = {
 
 const modalSymbol = Symbol();
 const useModal = () => {
-  // if (isVue3) {
-  //   const vueModal = inject(modalSymbol)
-  //   if (!vueModal) throw new Error('No VM2 provided!!!')
-  //   return vueModal;
-  // }
+  const vueModal = inject(modalSymbol);
+  if (!vueModal) throw new Error('No VM2 provided!!!')
+  return vueModal;
 }
 
-// const AsyncComp = defineAsyncComponent(() =>
-//   import('./components/Container.vue')
-// )
-
 const plugin = {
-  install(app, opts = {}) {
+  install(App, opts = {}) {
 
-    if (app.config.globalProperties.$vm2) {
+    if (App.config.globalProperties.$vm2) {
       return;
     }
 
     let options = Object.assign(optsDefault, opts);
 
-    app.component(options.componentName, ContainerModal);
+    App.component(options.componentName, ContainerModal);
     
     const root = new Bus();
 
@@ -51,11 +47,11 @@ const plugin = {
       }
     }
 
-    app.config.globalProperties.$vm2 = {
+    App.config.globalProperties.$vm2 = {
       ...api,
       root: root
     };
-    app.provide(modalSymbol, api)
+    App.provide(modalSymbol, api)
 
   }
 };

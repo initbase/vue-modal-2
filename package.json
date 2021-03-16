@@ -5,7 +5,7 @@
   "author": "Burhanuddin Ahmed <brhn@kusiaga.com>",
   "license": "MIT",
   "description": "A simple and lightweight Vue modal component.",
-  "main": "dist/vue-modal-2.umd.js",
+  "main": "dist/vue-modal-2.cjs.js",
   "module": "dist/vue-modal-2.esm.js",
   "unpkg": "dist/vue-modal-2.min.js",
   "browser": {
@@ -14,13 +14,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build": "rollup -c build/rollup.config.js",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-modal-2.umd.js",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-modal-2.esm.js",
     "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-modal-2.min.js"
   },
   "dependencies": {
-    "vue-demi": "^0.6.0"
+    "vue": "^3.0.5"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.0-beta.1",
@@ -28,16 +28,19 @@
   },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
-    "@rollup/plugin-commonjs": "^11.1.0",
-    "@vue/cli-plugin-babel": "4.1.1",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "4.1.1",
-    "@vue/cli-service": "4.1.1",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/component-compiler": "^4.2.3",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.0.1",
-    "rollup": "^1.17.0",
-    "rollup-plugin-vue": "^5.0.1",
-    "vue-template-compiler": "^2.6.11"
+    "rollup": "^2.38.5",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "vue-loader": "^16.1.2"
   },
   "eslintConfig": {
     "root": true,

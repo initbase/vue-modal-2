@@ -1,11 +1,17 @@
-import Vue from "vue";
+import Vue, { createApp } from "vue";
 import App from "./App.vue";
-import VM2 from "../src/index.js";
+import {VueModal} from "../src/index.js";
 
-Vue.config.productionTip = false;
-Vue.use(VM2, {
+// Vue.config.productionTip = false;
+// Vue.use(VueModal, {
+//   componentName: 'ModalVue'
+// });
+// new Vue({
+//   render: (h) => h(App)
+// }).$mount("#app");
+
+createApp(App)
+.use(VueModal, {
   componentName: 'ModalVue'
-});
-new Vue({
-  render: (h) => h(App)
-}).$mount("#app");
+})
+.mount('#app')

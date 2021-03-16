@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     hasDefaultSlot() {
-      return !this.$slots.default;
+      return !(this.$slots.default()[0] && this.$slots.default()[0].children.length);
     },
     title () {
       if (this.props && this.props.title) {

@@ -15,10 +15,10 @@
       @on-close="handleClose"
     >
       <template v-slot:header>
-        <!-- <div>Header Name</div> -->
+        <div>Header Name</div>
       </template>
       <template v-slot:footer>
-        <!-- <div>Footer Name</div> -->
+        <div>Footer Name</div>
       </template>
       <div>content</div>
     </modal-vue>
@@ -36,7 +36,7 @@
       :darkMode="false"
       @on-close="handleClose2"
     >
-      <div>content</div>
+
     </modal-vue>
     <button @click="open2" class="button">Click Here 2</button>
 
