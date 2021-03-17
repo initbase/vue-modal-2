@@ -2,20 +2,21 @@
 
 vue-modal-2 accept some props
 
-#### `name`
+## `name`
 unique name of the modal (__required__).
 - type: `String`
 - required: `true`
 - default: `modal-1`
 
-#### `@on-close` or `v-bind:on-close`
+
+## `@on-close` or `v-bind:on-close`
 props function using to close the modal (__required__).
 - type: `function`
 - required: `true`
 
 see example above.
 
-#### `headerOptions`
+## `headerOptions`
 options props for vue-modal-2 header
 - type: `Object`
 - default: `{}`
@@ -27,7 +28,7 @@ __headerOptions key:__
 |`headerOptions.title`|`String`|Modal title| Modal title on the left side|
 |`headerOptions.closeIcon`|`String`|`&#x2715;`|Close button icon on the right side|
 
-#### `footerOptions`
+## `footerOptions`
 options props for vue-modal-2 footer
 - type: `Object`
 - default: `{}`
@@ -46,39 +47,39 @@ __footerOptions key:__
 |`footerOptions.btn1Style`|`Object`|`{}`|style or css of button 1. eg. `{fontSize: '14px'}`|
 |`footerOptions.btn2Style`|`Object`|`{}`|style or css of button 2. eg. `{fontSize: '14px'}`|
 
-#### `noFooter`
+## `noFooter`
 used to remove footer
 - type: `Boolean`
 - default: `false`
-#### `noHeader`
+## `noHeader`
 Used to remove header
 - type: `Boolean`
 - default: `false`
-#### `wrapperBg`
+## `wrapperBg`
 Background color of modal wrapper (backdrop) (default is dark)
 - type: `String`
 - default: `rgba(0, 0, 0, 0.5)`
-#### `darkMode`
+## `darkMode`
 Used to switch color mode
 - type: `Boolean`
 - default: `false`
-#### `lightBg`
+## `lightBg`
 background color of modal dialog when mode is light
 - type: `String`
 - default: `white`
-#### `darkBg`
+## `darkBg`
 background color of modal dialog when mode is dark
 - type: `String`
 - default: `#06090f`
-#### `fontDark`
+## `fontDark`
 text color of modal when mode is dark
 - type: `String`
 - default: `white`
-#### `fontLight`
+## `fontLight`
 text color of modal when mode is light
 - type: `String`
 - default: `black`
-#### `modalSize`
+## `modalSize`
 size of modal dialog
 - type: `String`
 - value: `md` | `lg` | `xl` | `full-w` | `full-hw` | `sidebar-l` | `sidebar-r`

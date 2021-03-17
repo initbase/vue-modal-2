@@ -1,13 +1,13 @@
 # API
 
-### `open(args)`
+## `open(args)`
 accept modal name as `args`
 
 ```javascript
 this.$vm2.open('modal-1')
 ```
 
-### `close(args)`
+## `close(args)`
 accept modal name as `args`
 
 ```javascript
