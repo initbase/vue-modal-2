@@ -35,6 +35,7 @@
       }"
       :darkMode="false"
       @on-close="handleClose2"
+      modalSize="xl"
     >
 
     </modal-vue>
