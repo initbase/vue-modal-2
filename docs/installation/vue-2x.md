@@ -13,6 +13,8 @@ npm install @burhanahmeed/vue-modal-2
 ## Usage
 How to use it in Vue 2.x
 
+### CLI
+
 ```javascript
 import Vue from "vue";
 import App from "./App.vue";
@@ -54,8 +56,35 @@ For typescript you can use `(this as any)`.
 Please refer to this [issue](https://github.com/burhanahmeed/vue-modal-2/issues/2).
 :::
 
-vue-modal-2 also accept options in `.use()` function as second argument.
+### Nuxt
+
+For Nuxtjs, use it as plugin with client mode.
+
+### Browser module
+
+If you are using browser ESM feature you can use it as javascript module.
+
+```html
+<script type="module">
+  import Vue from "https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js";
+  import VueModal from "https://unpkg.com/@burhanahmeed/vue-modal-2/dist/vue-modal-2.esm.js";
+
+  Vue.use(VueModal, {
+    componentName: "ModalVue"
+  });
+  var app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello Vue!"
+    }
+  });
+</script>
+```
+
 ## options
+
+vue-modal-2 also accept options in `.use()` function as second argument.
+
 #### `options.componentName`
 - type: `String`
 - default: `vue-modal-2`
@@ -72,3 +101,4 @@ Vue.use(Modal. {
   </my-modal>
 </template>
 ```
+
