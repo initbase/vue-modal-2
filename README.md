@@ -4,7 +4,7 @@
 
 A simple and lightweight Vue modal component for __Vue 2.x__.
 
-Docs: https://12sync.github.io/vue-modal-2/
+Docs: https://initbase.github.io/vue-modal-2/
 
 ## Demo
 [demo codesandbox](https://codesandbox.io/s/vue-modal-2-vue2-forked-rfxwr)
@@ -185,4 +185,4 @@ Feel free to open an issue or pull request. Open an issue if you want discussing
 
 ## License
 
-MIT &copy; [burhanahmeed](https://github.com/burhanahmeed/vue-modal-2) and [12Sync](https://github.com/12sync)
+MIT &copy; [burhanahmeed](https://github.com/burhanahmeed/vue-modal-2) and [Initbase](https://github.com/initbase)
