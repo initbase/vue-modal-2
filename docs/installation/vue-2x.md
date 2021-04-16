@@ -60,6 +60,10 @@ Please refer to this [issue](https://github.com/burhanahmeed/vue-modal-2/issues/
 
 For Nuxtjs, use it as plugin with client mode.
 
+::: tip Required
+As of now, you need wrap `<vue-modal-2/>` with `<client-only/>`. It will avoid you from unrendered modal component during `build` or `generate` process.
+:::
+
 ### Browser module
 
 If you are using browser ESM feature you can use it as javascript module.
