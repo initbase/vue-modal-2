@@ -65,5 +65,7 @@
     "dialog",
     "UI"
   ],
-  "repository": "burhanahmeed/vue-modal-2"
+  "repository": "burhanahmeed/vue-modal-2",
+  "homepage": "https://12sync.github.io/vue-modal-2/",
+  "bugs": "https://github.com/burhanahmeed/vue-modal-2/issues"
 }
