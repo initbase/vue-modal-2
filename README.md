@@ -4,7 +4,11 @@
 
 A simple and lightweight Vue modal component for __Vue 2.x__.
 
+
+## Documentation
+
 Docs: https://initbase.github.io/vue-modal-2/
+
 
 ## Demo
 [demo codesandbox](https://codesandbox.io/s/vue-modal-2-vue2-forked-rfxwr)
