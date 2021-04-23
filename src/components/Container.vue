@@ -314,7 +314,7 @@ export default {
 
 @media screen and (min-width: 580px) {
   .vm2_settings.vm2_md, .vm2_settings.vm2_lg {
-    max-width: 500px !important;
+    max-width: 500px;
   }
   .vm2_settings.vm2_xl {
     width: auto;
@@ -324,13 +324,13 @@ export default {
 
 @media screen and (min-width: 880px) {
   .vm2_settings.vm2_lg, .vm2_settings.vm2_xl {
-    max-width: 800px !important;
+    max-width: 800px;
   }
 }
 
 @media screen and (min-width: 1300px) {
   .vm2_settings.vm2_xl {
-    max-width: 1200px !important;
+    max-width: 1200px;
   }
 }
 
