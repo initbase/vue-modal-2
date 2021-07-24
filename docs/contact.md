@@ -1,6 +1,6 @@
 # Contact
 
-You can contact me via [github issue](https://github.com/burhanahmeed/vue-modal-2/issues) or email me at [brhn@kusiaga.com](mailto:brhn@kusiaga.com) 
+You can contact me via [github issue](https://github.com/burhanahmeed/vue-modal-2/issues) or email me at [brhn@kusiaga.com](mailto:burhanahmeed@gmail.com) 
 
 # Sponsoring me
 
