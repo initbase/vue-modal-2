@@ -1,0 +1,1 @@
+import{o as a,c as e,a as r}from"./app.167939fa.js";const t='{"title":"Contact","description":"","frontmatter":{},"relativePath":"contact.md","lastUpdated":1627130462404}',n={},o=r('',5);n.render=function(r,t,n,h,i,m){return a(),e("div",null,[o])};export default n;export{t as __pageData};
